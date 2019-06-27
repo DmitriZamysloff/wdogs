@@ -4,50 +4,68 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
-import java.util.UUID;
 
+/**
+ * Represents JPA Entity for DOG.
+ */
 @Entity
 @Table(name="dogs")
 public class Dog {
 
     @Id
     @Column(name="uuid")
-    private String id;
+    private String uuid;
 
     @NotNull
-    private String name;
+    @Column(name="name")
+    private String dogName;
 
     @NotNull
     @Column(name="rasse")
-    private String breed;
+    private String dogRace;
 
     @NotNull
     @Column(name="besitzer")
     private String owner;
 
-    public String getId() {
-        return id;
+    @Transient
+    private String self;
+
+    public String getKind() {
+        return kind;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setKind(String kind) {
+        this.kind = kind;
     }
 
-    public String getName() {
-        return name;
+    @Transient
+    private String kind = "Page";
+
+    public String getUuid() {
+        return uuid;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
-    public String getBreed() {
-        return breed;
+    public String getDogName() {
+        return dogName;
     }
 
-    public void setBreed(String breed) {
-        this.breed = breed;
+    public void setDogName(String dogName) {
+        this.dogName = dogName;
+    }
+
+    public String getDogRace() {
+        return dogRace;
+    }
+
+    public void setDogRace(String dogRace) {
+        this.dogRace = dogRace;
     }
 
     public String getOwner() {
@@ -58,5 +76,11 @@ public class Dog {
         this.owner = owner;
     }
 
+    public String getSelf() {
+        return self;
+    }
 
+    public void setSelf(String self) {
+        this.self = self;
+    }
 }

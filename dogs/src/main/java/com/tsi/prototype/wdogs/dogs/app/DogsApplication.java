@@ -9,20 +9,31 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import javax.sql.DataSource;
 
+/**
+ * Main application class of the spring boot application.
+ */
 @SpringBootApplication
 @EnableJpaRepositories("com.tsi.prototype.wdogs.dogs.dao")
 @EntityScan("com.tsi.prototype.wdogs.dogs.model")
 public class DogsApplication implements CommandLineRunner {
 
+    private DataSource dataSource;
+
+    protected DataSource getDataSource() {
+        return this.dataSource;
+    }
+
     @Autowired
-    DataSource dataSource;
+    protected void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     public static void main(String ... args) {
         SpringApplication.run(DogsApplication.class, args);
     }
 
-    public void run(String... args) throws Exception {
-        System.out.println("Data source = " + dataSource);
+    public void run(String... args) {
+        System.out.println("Data source = " + getDataSource());
 
     }
 }
