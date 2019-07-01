@@ -5,11 +5,11 @@ Following environment parameters expected:
 - DOGS_DATABASE_USER - database user
 - DOGS_DATABASE_PWD  - database password
 
-Building project: mvn clean install. This will create docker image.
+Building project: <code>mvn clean install</code>. This will create docker image as a part of the build.
 
-Using maven in dogs module directory:
-mvn -DDOGS_DATABASE_HOST=<host> -DDOGS_DATABASE_PORT=<port> -DDOGS_DATABASE_USER=<user> -DDOGS_DATABASE_PWD=<pwd> spring-boot:run
+Using maven in dogs module directory:<br/>
+<code>mvn -DDOGS_DATABASE_HOST=<host> -DDOGS_DATABASE_PORT=<port> -DDOGS_DATABASE_USER=<user> -DDOGS_DATABASE_PWD=<pwd> -DDOGS_DATABASE_NAME=<database_name> spring-boot:run</code>
 
-Using docker
-docker run --env DOGS_DATABASE_HOST=<host> --env DOGS_DATABASE_PORT=<port> --env DOGS_DATABASE_USER=<user> --env DOGS_DATABASE_PWD=<pwd> tsi/dogs
-
+Using docker (after image created):<br/>
+<code>docker run --env DOGS_DATABASE_HOST=<host> --env DOGS_DATABASE_PORT=<port> --env DOGS_DATABASE_USER=<user> --env DOGS_DATABASE_PWD=<pwd> --env DOGS_DATABASE_NAME=<database_name> tsi/dogs
+</code>
