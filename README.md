@@ -13,3 +13,6 @@ Using maven in dogs module directory:<br/>
 Using docker (after image created):<br/>
 <code>docker run --expose=8080 --env DOGS_DATABASE_HOST=<host> --env DOGS_DATABASE_PORT=<port> --env DOGS_DATABASE_USER=<user> --env DOGS_DATABASE_PWD=<pwd> --env DOGS_DATABASE_NAME=<database_name> dzcs/dogs
 </code>
+
+Dummy Installation with embedded H2 db:<br/>
+<code>docker run --expose=8080 --env spring.profiles.active=dummy dzcs/dogs</code>
